@@ -7,16 +7,19 @@
 
     <style>
      
-     h1 { width: 65px; color: orange; font-family: sans-serif;}
+     h1 { width: 65px; color: orange; font-family: sans-serif; text-decoration: overline;}
 
-     p {font-weight: 600; font-size: 3em;}
+     p {font-weight: 600; font-size: 3em; font-style: oblique;}
      
-     .unlist-p_style { background-color: teal;}
+     .unlist-p_style { background-color: teal; line-height: inherit; text-align: center;}
 
      body {font-size: 16px;}
 
+     #item_yellow {background-color: yellow;}
 
+     #item_red {background-color: red;}
 
+     #item_brown {background-color: brown;}
 
     </style>
 
@@ -28,13 +31,13 @@
 
     <p class="unlist-p_style"> Qual é a sua cor favorita? </p>
 
-    <ul class="unlist-p_style">
-      <li>Amarelo</li>
-      <li>Vermelho</li>
-      <li>Marrom</li>
+      <ul class="unlist-p_style">
+      <li id="item_yellow">Amarelo</li>
+      <li id="item_red">Vermelho</li>
+      <li id="item_brown">Marrom</li>
     </ul>
 
-    <!-- Exercícios
+    <!-- Exercícios p.1
  - Modifique o tamanho do h1 para 65 pixels
  - Modifique a cor do texto do h1 para laranja
  - Modifique a cor de fundo da lista não ordenada
@@ -42,7 +45,7 @@
     -->
 
 
-    <!-- Exercícios
+    <!-- Exercícios p.2
      1 - Modifique o família do h1 para sans-serif
      2 - Deixe o parágrafo com o font-weight 600
      3 - Modifique o font-size do body para 16px
