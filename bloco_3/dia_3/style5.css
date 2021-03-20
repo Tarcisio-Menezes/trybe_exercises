@@ -53,9 +53,30 @@ ul li span {
     background-color: palevioletred;
 }
 
+#sta:hover {
+font-weight: bold ;
+color: orange;
+} 
 
-  
-
+#w3s:hover {
+    font-weight: bold;
+    color: green;
  
+}
+
+#moz:hover {
+    font-weight: bold;
+    color: black;
+}
+ 
+#dev:hover {
+    font-weight: bold;
+    color: yellow;
+}
+
+#try:hover {
+    font-weight: bold;
+    color: teal;
+}
 
 
