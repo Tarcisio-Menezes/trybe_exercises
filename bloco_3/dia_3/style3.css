@@ -1,0 +1,46 @@
+h1, p { 
+   font-size: 30px; text-align: center;
+}
+
+.dio:hover {
+background-color: blueviolet ;
+transition-delay: 0.3s;
+    }
+
+.dio:active {
+    font-size: 40px;
+    transition-delay: initial;
+}
+
+.edv:hover {
+    background-color: rgb(211, 25, 25);
+    transition-delay: 0.3s;
+}
+
+edv:active {
+    font-size: 40px;
+    transition-delay: initial;
+}
+
+.viv:hover{
+    background-color: rgb(6, 118, 6);
+    transition-delay: 0.3s;
+}
+
+.viv:active {
+    font-size: 40px;
+    transition-delay: initial;
+}
+
+ol, ul {
+    font-size: 30px;
+    transition-delay: 0.3s;
+    list-style: none;
+}
+
+body {
+    background-image: url(https://fragmenteja.com.br/wp-content/uploads/2017/03/FUNDO-DE-SITE.jpg);
+    background-size: cover;
+    }
+
+    
