@@ -19,7 +19,7 @@ h1 {
     height: 50px;
     text-align: center;
     width: 300px;
-    margin-left: 20%;
+    margin-left: 23%;
     display: inline-block;
     
 
@@ -31,9 +31,18 @@ h1 {
     height: 50px;
     text-align: center;
     width: 300px;
-    display: inline-block;
-    margin-left: 50%;
-    margin-top: 0px;
+    display: inline-block; 
+        
+    }
+
+    .premium ul li {
+        display: inline;
+            }
+
+    .premium ul {
+        text-align: center;
+    }
     
-    
+    h3 {
+        text-align: center;
     }
