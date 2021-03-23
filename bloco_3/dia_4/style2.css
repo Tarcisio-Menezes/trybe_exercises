@@ -1,0 +1,112 @@
+body {
+    background-color: cadetblue;
+}
+
+header {
+    background-color: rgb(241, 196, 136);
+    text-align: center;
+    padding: 1%;
+    border-radius: 15%;
+    font-family: monospace;
+    font-size: larger;
+    font-style: bold;
+    font-weight: bolder;
+}
+
+nav ul li{
+    display: inline;
+    padding: 2%;   
+}
+
+nav ul li a:hover {
+    font-size: larger;
+    color: blue;
+}
+
+nav ul li a:active {
+    color: red;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+main {
+    background-color: burlywood;
+    margin: 2%;
+    padding-top:2% ;
+}
+
+p {
+    margin: 3%;
+    text-align: justify;
+    }
+
+h1, h2, h3 {
+    text-align: left;
+    margin: 2%;
+    
+}
+
+table {
+    margin: 2%;
+   
+}
+
+table tr {
+    padding-right: 3% 3% 3%;
+}
+
+.img {
+    margin: 2% 25% 2%;
+}
+
+#refs {
+    text-align: justify;
+    padding-bottom: 2%;
+    }
+
+#refs ul li a:hover {
+    font-size: larger;
+    color: blue;
+}
+
+#refs ul li a:active {
+    color: red;
+}
+
+#video {
+    float: right;
+    position: absolute;
+    right: 10% ;
+    top: 13%;
+    background-color: seagreen;
+    text-align: center ;
+    padding: 1% 2% 1% 2%;
+    border-radius: 15%;
+    border-color: springgreen;
+    border-style: solid;
+}
+
+#video a {
+    padding: 2%;
+    background-color: springgreen;
+    text-decoration: none;
+}
+
+#video a:hover {
+    font-size: larger;
+    color: blue;
+}
+
+#video a:active {
+    color:red;
+}
+
+footer {
+    text-align: center;
+}
+
+#achecker {
+    text-align: center;
+}
