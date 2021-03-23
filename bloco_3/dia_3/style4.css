@@ -1,0 +1,70 @@
+body {
+
+    background-image: url("https://image.freepik.com/fotos-gratis/convite-de-pascoa-com-ovos-e-margaridas-em-um-fundo-azul-com-espaco-de-copia_24972-1575.jpg");
+    background-size: cover;
+}
+
+
+div:hover {
+
+    margin-right: 300px;
+    border-style: solid;
+    border-color: rgb(12, 11, 9);
+    padding: 15px 15px 15px;
+}
+
+div:nth-of-type(1) {
+
+    background-color: yellow;
+    
+}
+
+div:nth-of-type(2) {
+
+    background-color: green;
+}
+
+div:nth-of-type(3) {
+    
+    padding: 15px 15px 15px;
+    background-color: rgb(48, 183, 134) ;
+}
+
+div:nth-of-type(4) {
+
+    background-color: brown;
+}
+
+div:nth-of-type(5) {
+    background-color: rgb(245, 233, 217);
+}
+
+div:nth-of-type(1) h3 { 
+
+    font-family: cursive;
+}
+
+div:nth-of-type(2) h3 { 
+
+    font-family: 'Courier New';
+}
+
+div:nth-of-type(3) h3 { 
+
+    font-family: Arial;
+}
+
+div:nth-of-type(4) h3 { 
+
+    font-family: monospace;
+}
+
+div:nth-of-type(5) h3 { 
+
+    font-family: serif;
+}
+
+div:nth-of-type(2n+1) h3 {
+
+    font-style: italic;
+}
