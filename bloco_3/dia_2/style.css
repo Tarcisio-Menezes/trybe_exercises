@@ -1,0 +1,13 @@
+h1 { width: 65px; color: orange; font-family: sans-serif; text-decoration: overline;}
+
+     p {font-weight: 600; font-size: 3em; font-style: oblique;}
+     
+     .unlist-p_style { background-color: teal; line-height: inherit; text-align: center;}
+
+     body {font-size: 16px;}
+
+     #item_yellow {background-color: yellow;}
+
+     #item_red {background-color: red;}
+
+     #item_brown {background-color: brown;}
