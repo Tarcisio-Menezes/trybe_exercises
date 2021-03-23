@@ -40,7 +40,7 @@ main {
 p {
     margin: 3%;
     text-align: justify;
-}
+    }
 
 h1, h2, h3 {
     text-align: left;
@@ -104,5 +104,9 @@ table tr {
 }
 
 footer {
+    text-align: center;
+}
+
+#achecker {
     text-align: center;
 }
