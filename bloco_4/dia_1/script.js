@@ -156,49 +156,49 @@ else {
 
 // parte 11
 
-let salario = 1570.0;
-let desc_inss;
+
 let sal_inss;
 let sal_ir;
-let desc_ir;
-let salario_liquido;
 
-if (salario <= 1556.94) {
-  desc_inss = salario * 8/100; 
+let salario_bruto = 1570.0;
+
+if (salario_bruto <= 1556.94) {
+  sal_inss = salario_bruto * (8/100);
 }
 
-else if (salario >= 1556.95 && salario <= 2594.92) {
-  dec_inss = salario * 9/100; 
+else if (salario_bruto <= 2594.92) {
+  sal_inss = salario_bruto * (9/100);
 }
 
-else if (salario >= 2594.93 && salario <= 5189,82) {
-  dec_inss = salario * 11/100;  
+ else if (salario_bruto <= 5189.82) {
+  sal_inss = salario_bruto * (11/100);
+} 
+else {
+  sal_inss = 570.88;
+}
+
+let salario_d_inss = salario_bruto - sal_inss;
+
+if (salario_d_inss <= 1903.98) {
+  sal_ir = 0;
+} 
+
+else if (salario_d_inss <= 2826.65) {
+  sal_ir = (salario_d_inss * 0.075) - 142.80;
+} 
+
+else if (ssalario_d_inss <= 3751.05) {
+  sal_ir = (salario_d_inss * 0.15) - 354.80;
+} 
+
+else if (salario_d_inss <= 4664.68) {
+  sal_ir = (salario_d_inss * 0.225) - 636.13;
 }
 
 else {
-  desc_inss = 570.88; 
-}
+  sal_ir = (salario_d_inss * 0.275) - 869.36;
+};
 
-sal_inss = salario - dec_inss;
+let salario_liquido = salario_d_inss - sal_ir;
 
-
-if (salario >= 1903.99 && salario <= 2826.55) {
-  desc_ir = (salario * 7.5/100) - 142.80;
-}
-
-else if (salario >= 2826.66 && salario <= 3751.05) {
-  desc_ir = (salario * 15/100) - 354.80;
-}
-
-else if (salario >= 3751.06 && salario <= 4664.68) {
-  desc_ir = (salario * 22/100) - 636.13;
-}
-
-else {
-  desc_ir = (salario * 27.5/100) - 869.36;
- 
-}
-  sal_ir = salario - desc_ir;
-
-salario_liquido = salario - sal_ir - sal_inss;
-console.log ('O salário líquido do trabalhador é de', salario_liquido,'.');
+console.log('O salário que o trabalhador deve receber é de', salario_liquido,'reais.');
