@@ -2,6 +2,10 @@ let numbers = [5,9,3,19,70,8,100,2,35,27];
 let resultado = 0;
 let numero_maior = 0;
 let impares = 0;
+let menor_numero = 5100;
+let lista = [];
+let lista_div2 = [];
+
 
 // Nesse primeiro exercício, percorra o array imprimindo todos os valores nele contidos com a função console.log()
 
@@ -60,4 +64,27 @@ else {
 }
 
 //Utilizando for , descubra qual o menor valor contido no array e imprima-o;
+
+for (let index=0; index < numbers.length; index +=1) {
+  if (numbers[index] < menor_numero) {
+  menor_numero = numbers[index];
+}
+}
+  console.log ('O menor número é o', menor_numero,'!');
+
+
+//Utilizando for , crie uma array que vá de 1 até 25 e imprima o resultado;
+
+for (index=1; index <= 25; index +=1) {
+  lista.push (index);
+}
+
+console.log (lista);
+
+//Utilizando o array criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2 .
+
+for (index =1; index < lista.length; index +=1) {
+  lista_div2.push (index/2);
+}
+  console.log (lista_div2);
 
