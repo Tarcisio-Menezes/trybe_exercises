@@ -37,34 +37,31 @@ else {
 //Um número primo é um número que só é divisível por 1 e por ele mesmo, ou seja, a divisão dele com quaisquer outros números dá resto diferente de zero.
 //Dica: você vai precisar fazer um loop que vá de 0 ao número definido; Além disso, vai precisar fazer uma checagem a cada iteração e armazenar os resultados em algum lugar.
 
-let n = 2166;
+let n = 11;
 let score = 0;
+let score_impar = 0;
 
 for (index = 0; index <= n; index +=1) {
 
   if ( n % 2 != 0) {
 
-  if ( n/index === n ) {
-    score = score +1;
-  }
+  if (n % index === 0 && index != 1 && index != n) {
+      score_impar = score_impar + 1;
+    }
 
-  else if (n/index === 1) {
-    score = score +1
+  else if (n/index === 1 && index === n) {
+    score = score + 1;
   }
-
-  else if (index === n ) {
-    score = score + 1;  
-  }
-
-  else if (index === 1) {
-    score = score +1;
+ 
+  else if (n/index === n && index === 1) {
+    score = score + 1;
   }
 
   }
 
   }
 
-  if (score === 2 ) {
+  if (score > score_impar ) {
     console.log (n, 'é um número primo!');
   }
 
