@@ -32,3 +32,44 @@ if ( n > 1) {
 else {
   console.log ('Digite um número maioir que 1!')
 }
+
+// Faça um programa que diz se um número definido numa variável é primo ou não.
+//Um número primo é um número que só é divisível por 1 e por ele mesmo, ou seja, a divisão dele com quaisquer outros números dá resto diferente de zero.
+//Dica: você vai precisar fazer um loop que vá de 0 ao número definido; Além disso, vai precisar fazer uma checagem a cada iteração e armazenar os resultados em algum lugar.
+
+let n = 2166;
+let score = 0;
+
+for (index = 0; index <= n; index +=1) {
+
+  if ( n % 2 != 0) {
+
+  if ( n/index === n ) {
+    score = score +1;
+  }
+
+  else if (n/index === 1) {
+    score = score +1
+  }
+
+  else if (index === n ) {
+    score = score + 1;  
+  }
+
+  else if (index === 1) {
+    score = score +1;
+  }
+
+  }
+
+  }
+
+  if (score === 2 ) {
+    console.log (n, 'é um número primo!');
+  }
+
+  else {
+    console.log (n, 'não é um número primo!');
+  }
+  
+
