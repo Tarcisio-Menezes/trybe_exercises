@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .paragraph1 {background-color: aqua;}
+            
+            .paragraph2 {background-color: blueviolet;};
+        </style>
+    </head>
+  <body>
+    <h2 class="page-title">Título</h2>
+    <p class="paragraph1">Dê uma cor para este parágrafo!</p>
+    <h4 id="subtitle">Subtítulo</h4>
+    <p class="paragraph2">Segundo parágrafo!</p>
+
+    <script>
+      document.getElementsByClassName('paragraph1')[0].innerText = 'Novo nome atribuido com JavaScript';
+
+      var paragraph2 = document.getElementsByClassName('paragraph2')[0];
+      
+      paragraph2.style.color = 'white';
+
+      document.getElementsByTagName('h4')[0].innerText = 'Alterado com JavaScript - Esse é fera!';
+
+
+    </script>
+  </body>
+</html>
