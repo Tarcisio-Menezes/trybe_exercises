@@ -65,7 +65,13 @@
 
     let pMaster = document.getElementsByTagName('p');
     for (index = 0; index < pMaster.length; index += 1) {
-      pMaster[index].toUpperCase();
+     /// pMaster[index].style.textTransform = 'uppercase';
+     pMaster[index].innerText = pMaster[index].innerText.toUpperCase();
+    }
+
+    let contentParagraph = document.getElementsByTagName('p');
+    for (index = 0; index < contentParagraph.length; index += 1) {
+      console.log(contentParagraph[index].innerText);
     }
 
     </script>
