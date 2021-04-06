@@ -39,4 +39,34 @@
    // Agora acesse o terceiroFilho a partir de pai .
    document.getElementById('pai').lastElementChild.previousElementSibling;
 
+   // Crie um irmão para elementoOndeVoceEsta .
+   let pai = document.getElementById('pai');
+
+   let  irmaoDoElementoOndeVoceEsta = document.createElement('div');
+
+   pai.appendChild(irmaoDoElementoOndeVoceEsta);
+
+   irmaoDoElementoOndeVoceEsta.id = 'novoFilho';
+
+   // Crie um filho para elementoOndeVoceEsta .
+   let elementoOndeVoceEsta = document.getElementById('elementoOndeVoceEsta');
+
+   let filhoDoElementoOndeVoceEsta = document.createElement('div');
+
+   elementoOndeVoceEsta.appendChild(filhoDoElementoOndeVoceEsta);
+
+   filhoDoElementoOndeVoceEsta.id = 'novoFilho';
+
+   // Crie um filho para primeiroFilhoDoFilho .
+   let primeiroFilhodoFilho = document.getElementById('primeiroFilhoDoFilho');
+
+   let filhoDoPrimeiroFilhoDoFilho = document.createElement('div');
+
+   primeiroFilhodoFilho.appendChild(filhoDoPrimeiroFilhoDoFilho);
+
+   filhoDoPrimeiroFilhoDoFilho.id = 'primeiroFilhoDoPrimeiroFilhoDoFilho';
+
+   // A partir desse filho criado, acesse terceiroFilho .
+   document.getElementById('primeiroFilhoDoPrimeiroFilhoDoFilho').parentNode.parentNode.nextElementSibling;
+
 </script>
