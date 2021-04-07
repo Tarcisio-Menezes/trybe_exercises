@@ -69,4 +69,12 @@
    // A partir desse filho criado, acesse terceiroFilho .
    document.getElementById('primeiroFilhoDoPrimeiroFilhoDoFilho').parentNode.parentNode.nextElementSibling;
 
+   // Remova todos os elementos da página, menos pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
+   let paii = document.getElementById('pai');
+  
+   paii.removeChild(primeiroFilho, terceiroFilho, quartoEUltimoFilho);
+
+
+
+
 </script>
