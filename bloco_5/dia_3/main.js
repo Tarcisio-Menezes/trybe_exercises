@@ -43,6 +43,31 @@ container.addEventListener('click', function(event) {
 
 });
 
+input.addEventListener('input', function(event) {
+  if (divUm.className === 'tech') {
+    divUm.innerText = input.value;
+  }
+
+  if (divDois.className === 'tech') {
+    divDois.innerText = input.value;
+  }
+
+  if (divTres.className === 'tech') {
+    divTres.innerText = input.value;
+  }
+
+})
+
+myWebpage.addEventListener('dblclick', function() {
+  alert ('Você será redirecionado!');
+  window.location.href = 'https://tarcisio-menezes.github.io/';
+  
+})
+
+myWebpage.addEventListener('mouseover', function(event) {
+  event.target.style.color = 'blue';
+})
+
 function resetText(event) {
   // O Event é passado como um parâmetro para a função.
   event.target.innerText = 'Opção reiniciada';
