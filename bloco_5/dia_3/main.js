@@ -20,26 +20,12 @@ Segue abaixo um exemplo do uso de event.target:
 */
 
 
-divUm.classList.remove('tech');
-
 let container = document.getElementsByClassName('container')[0];
 
 container.addEventListener('click', function(event) {
-  event.target.className = 'tech';
-    if (divUm.className === 'tech') {
-      divDois.classList.remove('tech');
-      divTres.classList.remove('tech'); 
-  }
-
-    if (divDois.className === 'tech') {
-      divUm.classList.remove('tech');
-      divTres.classList.remove('tech'); 
-  }
-
-    if (divTres.className === 'tech') {
-      divUm.classList.remove('tech');
-      divDois.classList.remove('tech');
-  }
+  classReset = document.getElementsByClassName('tech')[0];
+  classReset.classList.remove('tech');
+  event.target.classList.add ('tech');
 
 });
 
@@ -65,7 +51,7 @@ myWebpage.addEventListener('dblclick', function() {
 })
 
 myWebpage.addEventListener('mouseover', function(event) {
-  event.target.style.color = 'blue';
+  event.target.style.color = 'yellow';
 })
 
 function resetText(event) {
