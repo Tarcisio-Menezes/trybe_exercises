@@ -55,4 +55,51 @@ function createDaysOfTheWeek() {
 
 daysOfMonth();
 
+//Exercicio 2
+function createButton(string) {
+  let button = document.createElement('button');
+  button.appendChild(document.createTextNode(string));
+  button.id = 'btn-holiday';
+  let divButtonsContainer = document.getElementsByClassName('buttons-container')[0];
+  divButtonsContainer.appendChild(button);
+}
+
+createButton('Feriados');
+
+//Exercicio 3
+function displayHolidays() {
+  let button = document.getElementById('btn-holiday');
+  let getHolidays = document.querySelectorAll('.holiday')
+  let backgroundColor = 'rgb(238,238,238)';
+  let newColor = 'yellow';
+
+  button.addEventListener('click', function() {
+    for (let index = 0; index < getHolidays.length; index += 1) {
+
+      if (getHolidays[index].style.backgroundColor === newColor) {
+
+        getHolidays[index].style.backgroundColor = backgroundColor;
+
+      } else {
+
+        getHolidays[index].style.backgroundColor = newColor;
+      }
+    }
+  })
+};
+
+displayHolidays();
+
+//Exercicio 4
+function friday(string) {
+  let divButtonsContainer = document.getElementsByClassName('buttons-container')[0];
+  let fridayButton = document.createElement('button');
+  fridayButton.appendChild(document.createTextNode(string));
+  divButtonsContainer.appendChild(fridayButton);
+  
+}
+
+friday('Sextou!');
+
+
 
