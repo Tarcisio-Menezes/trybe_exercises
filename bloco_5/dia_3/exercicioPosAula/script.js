@@ -143,5 +143,15 @@ zoom();
 
 rezoom();
 
+//Exercicio 7
+function tasks(tarefa) {
+  let myTasks = document.getElementsByClassName('my-tasks')[0];
+  let task = document.createElement('span');
+  myTasks.appendChild(task);
+  task.innerText = tarefa;
+}
+
+tasks('Dar aula de manhã!');
+
 
 
