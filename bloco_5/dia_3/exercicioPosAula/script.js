@@ -91,15 +91,34 @@ function displayHolidays() {
 displayHolidays();
 
 //Exercicio 4
-function friday(string) {
+function bFriday(string) {
   let divButtonsContainer = document.getElementsByClassName('buttons-container')[0];
   let fridayButton = document.createElement('button');
   fridayButton.appendChild(document.createTextNode(string));
   divButtonsContainer.appendChild(fridayButton);
-  
+  fridayButton.id = 'btn-friday';  
 }
 
-friday('Sextou!');
+bFriday('Sextou!');
 
+function dispFriday(arrFridays) {
+  let fridayButton = document.getElementById('btn-friday');
+  let friday = document.getElementsByClassName('friday');
+  let newText = 'Sextou!';
+
+  fridayButton.addEventListener('click', function() {
+    for (let index = 0; index < friday.length; index += 1) {
+      if (friday[index].innerText === newText) {
+        friday[index].innerHTML = arrFridays[index];
+      }
+
+      else {
+        friday[index].innerText = newText;
+      }
+    }
+  })
+};
+
+dispFriday([4, 11, 18, 25]);
 
 
