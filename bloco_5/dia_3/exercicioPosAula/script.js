@@ -153,5 +153,18 @@ function tasks(tarefa) {
 
 tasks('Dar aula de manhã!');
 
+//Exercicio 8
+function colorTask(color) {
+  let myTasks = document.getElementsByClassName('my-tasks')[0];
+  let legenColor = document.createElement('div');
+  myTasks.appendChild(legenColor);
+  legenColor.className = 'task';
+  legenColor.style.backgroundColor = color;
+}
+
+colorTask('#457b9d');
+
+
+
 
 
