@@ -51,7 +51,7 @@ function createDaysOfTheWeek() {
       }
 
 }
-}
+};
 
 daysOfMonth();
 
@@ -62,7 +62,7 @@ function createButton(string) {
   button.id = 'btn-holiday';
   let divButtonsContainer = document.getElementsByClassName('buttons-container')[0];
   divButtonsContainer.appendChild(button);
-}
+};
 
 createButton('Feriados');
 
@@ -97,10 +97,11 @@ function bFriday(string) {
   fridayButton.appendChild(document.createTextNode(string));
   divButtonsContainer.appendChild(fridayButton);
   fridayButton.id = 'btn-friday';  
-}
+};
 
 bFriday('Sextou!');
 
+//Exercicio 5
 function dispFriday(arrFridays) {
   let fridayButton = document.getElementById('btn-friday');
   let friday = document.getElementsByClassName('friday');
@@ -120,5 +121,27 @@ function dispFriday(arrFridays) {
 };
 
 dispFriday([4, 11, 18, 25]);
+
+//Exercicio 6
+function zoom() {
+  let days = document.getElementById('days');
+  days.addEventListener('mouseover', function(event){
+    event.target.style.fontWeight = '750';
+    event.target.style.fontSize = '35px';
+  })
+};
+
+function rezoom() {
+  let days = document.getElementById('days');
+  days.addEventListener('mouseout', function(event){
+    event.target.style.fontSize = '20px';
+    event.target.style.fontWeight = '200';
+  })
+};
+
+zoom();
+
+rezoom();
+
 
 
