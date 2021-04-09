@@ -164,6 +164,8 @@ function colorTask(color) {
 
 colorTask('#457b9d');
 
+//Exercicio 9
+
 
 
 
