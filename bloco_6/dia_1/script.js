@@ -26,9 +26,8 @@ function enviar(event) {
   const descCargo = document.getElementById('descCargo').value;
   const data = document.getElementById('data').value
   const infos = document.getElementById('infos');
-
-  
-  infos.innerText = 'Nome: '+ fullName + ' E-mail: '+ eMail +' CPF: '+ cpf +' Endereço: ' + end +' Cidade: ' + cidade + ' Estado: '+ estado +' Resumo do currículo: ' + resCurriculo +' Cargo: ' + cargo +' Descrição do cargo: ' + descCargo + ' Data de início: '+data;  
+ 
+  infos.innerText = 'Informações coletadas: Nome: '+ fullName + ' E-mail: '+ eMail +' CPF: '+ cpf +' Endereço: ' + end +' Cidade: ' + cidade + ' Estado: '+ estado +' Resumo do currículo: ' + resCurriculo +' Cargo: ' + cargo +' Descrição do cargo: ' + descCargo + ' Data de início: '+data;  
 }
 
 submit.addEventListener('click', enviar);
