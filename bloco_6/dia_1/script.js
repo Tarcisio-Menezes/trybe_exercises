@@ -14,7 +14,7 @@ generateEst();
 const submit = document.getElementById('submit');
 
 function enviar(event) {
-  event.preventDefault();
+  event.preventDefault(); // Interrompe fluxo normal
   const fullName = document.getElementById('fullName').value;
   const eMail = document.getElementById('eMail').value;
   const cpf = document.getElementById('cpf').value;
