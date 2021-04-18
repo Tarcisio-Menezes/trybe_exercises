@@ -47,7 +47,7 @@
 
 <p> Tipo: </p>
 <label for(casa)> 
-<input type="radio" id='casa'' name='tipo' required> Casa
+<input type="radio" id='casa' name='tipo' required> Casa
 </label>
 
 <label for(apartamento)>
@@ -56,17 +56,39 @@
 
 </fieldset>
 
-<fieldset>
+<br>
 
-<label for(resCurriculo)>
+<fieldset id ='second'>
 
+<label for(resCurriculo)> <p>Resumo do currículo:</p>
+<textarea type="text" id='resCurriculo' cols="30" rows="15" required maxlength="1000"> </textarea>
 </label>
 
+<label for(cargo)> <p>Cargo:</p>
+<textarea type='text' id="cargo" cols="30" rows="10"  required maxlength="40"> </textarea>
+</label>
+
+<label for(descCargo)> <p>Descrição do cargo:</p>
+<textarea id="descCargo" cols="30" rows="15" required maxlength="500"> </textarea>
+</label>
+
+<label for(dataInicio)> <p>Data de início:</p>
+<input type="date" id='data' required placeholder="Digite a data no formato dd/mm/aaaa">
+</label>
 
 </fieldset>
 
+<br>
+
+<button type="submit" id='submit'> Enviar </button>
+<button type="reset" id ='clear'> Limpar </button>
 
 </form>
+<br>
+
+<div id="infos">
+<p> Informações recebidas: </p>
+</div>
 
 
 </body>
