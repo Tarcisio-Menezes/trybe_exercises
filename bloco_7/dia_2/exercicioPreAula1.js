@@ -135,3 +135,4 @@ const person = {
   newPerson.name = 'Gilberto';
   console.log(newPerson);
   console.log(person);
+  
