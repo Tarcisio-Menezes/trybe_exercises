@@ -6,4 +6,4 @@ const dormir = () => console.log('Partiu dormir!');
 
 const doingThings = (func) => func(); 
 
-doingThings(acordando);
+doingThings(cafe);
