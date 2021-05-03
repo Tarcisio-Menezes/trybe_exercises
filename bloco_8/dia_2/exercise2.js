@@ -64,7 +64,7 @@ const books = [
 ];
 
 function smallerName() {
-  let nameBook = Object.values(books);
+  let nameBook = Object.values(books); //  valor beeem grande
   // escreva aqui o seu código
   books.forEach((book) => {
     if (book.name.length < nameBook.length) {
@@ -76,5 +76,7 @@ function smallerName() {
 }
 
 assert.strictEqual(smallerName(), 'Duna');
+
+//console.log(Object.values(books));
 
 console.log(smallerName());
