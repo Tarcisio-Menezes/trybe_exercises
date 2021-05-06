@@ -54,3 +54,4 @@ const product = {
   };
   
   printProductDetails(product); // Promoção! Smart TV Crystal UHD por apenas 1899.05 é só aqui: Casas de Minas
+  
