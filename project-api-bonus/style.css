@@ -41,8 +41,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  .img {
-    border-style: none;
-    margin-top: 15%;
+  .main {
+    display: flex;
+    flex-direction: column;
   }
 }
