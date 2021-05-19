@@ -45,18 +45,18 @@ const professionalBoard = [
       professional.id === id));
 
     if (!selectId) {
-      throw new Error("ID não identificada");
+      throw new Error('ID não identificada');
     };
 
     if (!selectId[detail]) {
-      throw new Error("Informação indisponível");
+      throw new Error('Informação indisponível');
     };
 
     return selectId[detail];  
   };
 
-  console.log(searchEmployee('4678-2', 'specialities'))
-
+ 
   module.exports = {
     searchEmployee,
   }
+  
