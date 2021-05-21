@@ -11,7 +11,7 @@ test('Testando se a função foi chamada', () => {
   expect.assertions();
 
   const ramdNumber = jest.fn()
-  .mockReturnValueOnce(10);
+  ramdNumber.mockReturnValueOnce(10);
 
   expect(ramdNumber()).toBe(10);
   expect(ramdNumber).toHaveBeenCalledTimes(1);
