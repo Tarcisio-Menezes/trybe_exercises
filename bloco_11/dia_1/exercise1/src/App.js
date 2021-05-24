@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 
 const Task = (value) => {
   return (
@@ -8,10 +8,12 @@ const Task = (value) => {
 
 const list = ['Codar', 'Jogar FIFA', 'Ver o tricolor', 'Namorar', 'Tomar umas brejas'];
 
-function App() {
-  return (
+class App extends React.Component {
+  render() {
+    return (
     list.map((task) => Task(task))    
   );
+  }
 }
 
 export default App;
