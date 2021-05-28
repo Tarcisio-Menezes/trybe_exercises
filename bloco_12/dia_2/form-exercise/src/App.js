@@ -9,14 +9,17 @@ class App extends React.Component {
 
     this.state = {
       champsPaulistao: '',
+      triMundial: 'false',
     };
 
 
   }
 
-loadForm(event) {
+loadForm( event) {
+  const value = event.target.type ==='checkbox' ? event.target.checked : event.target.value;
+
   this.setState({
-    champsPaulistao: event.target.value,
+    [event.target.name]: value,
   });
 }
 
@@ -31,7 +34,7 @@ loadForm(event) {
       <label>Qual o melhor do Brasil?
       <br></br>
 
-      <select id='best' name='times'>
+      <select id='best' name='times-select'>
         <option value='tricolor-paulista'>Tricolor do Morumbi</option>
         <option value='sao-paulo'>São Paulo</option>
         <option value='soberano'> São Paulão Campeão</option>
@@ -42,10 +45,15 @@ loadForm(event) {
 
       </label> Quem foi o campeão paulista de 2021?
       <br></br>
-       <textarea name='champs' rows='1' cols='25' placeholder='digite São Paulo FC aqui' value={this.state.champsPaulistao} onChange={this.loadForm}>
+       <textarea name='champsPaulistao' rows='1' cols='25' placeholder='digite São Paulo FC aqui' value={this.state.champsPaulistao} onChange={this.loadForm}>
        </textarea> 
-
       <label>
+      <br></br>
+      <br></br>
+      <label>Qual o único clube brasileiro tri campeão mundial?
+      <br></br>
+      <input type='checkbox' name='triMundial'value={this.state.triMundial} onChange={this.loadForm}></input> Tricolor
+      </label>
 
       </label>
       </div>
