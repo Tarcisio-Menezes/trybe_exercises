@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Champs from './Champs';
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +16,7 @@ class App extends React.Component {
 
   }
 
-loadForm( event) {
+loadForm(event) {
   const value = event.target.type ==='checkbox' ? event.target.checked : event.target.value;
 
   this.setState({
@@ -41,14 +42,11 @@ loadForm( event) {
       </select>
 
       <br></br>
-      <br></br>
 
-      </label> Quem foi o campeão paulista de 2021?
+      <p>Quem foi o campeão paulista de 2021?</p>
       <br></br>
-       <textarea name='champsPaulistao' rows='1' cols='25' placeholder='digite São Paulo FC aqui' value={this.state.champsPaulistao} onChange={this.loadForm}>
-       </textarea> 
-      <label>
-      <br></br>
+      <Champs value={this.state.champsPaulistao} loadForm={this.loadForm} />
+
       <br></br>
       <label>Qual o único clube brasileiro tri campeão mundial?
       <br></br>
