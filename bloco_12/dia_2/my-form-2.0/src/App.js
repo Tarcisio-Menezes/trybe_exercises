@@ -12,6 +12,8 @@ class App extends React.Component {
     super();
 
     this.readForm = this.readForm.bind(this);
+    this.validEnd = this.validEnd.bind(this);
+    this.validCity = this.validCity.bind(this);
 
     this.state = {
       name: '',
@@ -30,7 +32,19 @@ class App extends React.Component {
       [event.target.name]: value,
     });
 
-  }  
+  }
+
+  validEnd(event) {
+    this.setState({
+      end: event.target.value.replace(/[`~!@#$%^&*+=><']/g, '')
+    });
+  }
+
+  validCity(event) {
+    this.setState({
+      city: event.target.value.replace(/[`0123456789`]/g, '')
+    });
+  }
 
   render() {
     return (
@@ -41,8 +55,8 @@ class App extends React.Component {
       <Name value={this.state.name} readForm={this.readForm} />
       <Email value={this.state.email} readForm={this.readForm}/>
       <Cpf value={this.state.cpf} readForm={this.readForm} />
-      <End value={this.state.end} readForm={this.readForm}/>
-      <City value={this.state.city} readForm={this.readForm}/>
+      <End value={this.state.end} readForm={this.readForm}validEnd={this.validEnd} />
+      <City value={this.state.city} readForm={this.readForm} validCity={this.validCity}/>
         
       </div>
     );

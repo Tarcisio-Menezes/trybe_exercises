@@ -1,16 +1,16 @@
 import React from 'react';
 
 class City extends React.Component {
+ 
+   render() {
 
-  render() {
-
-    const { value, readForm } = this.props;
+    const { value, readForm, validCity } = this.props;
 
     return(
         <div className="city">
           
         <label className="label">Cidade:</label>
-        <input name="city" className="input is-primary" type="text" placeholder="Digite sua cidade" value={value} onChange={readForm} maxLength="28" required></input>
+        <input name="city" className="input is-primary" type="text" placeholder="Digite sua cidade" value={value} onChange={readForm} onBlur={validCity} maxLength="28" required></input>
 
         </div>
     )
