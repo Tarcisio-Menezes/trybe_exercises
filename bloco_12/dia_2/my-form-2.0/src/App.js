@@ -71,7 +71,9 @@ class App extends React.Component {
   }
 
   showData() {
-    document.getElementsByClassName('personal')[0].remove();
+    const display = document.getElementsByClassName('display')[0];
+
+    display.classList.toggle('display');
   }
 
   render() {
@@ -105,11 +107,14 @@ class App extends React.Component {
       <br></br>
       <div className="buttons">
       <SucessButton showData={this.showData} />
-      <span> <DisplayData /></span>
       </div>
 
       </form>
-        
+
+      <div className="display">
+      <DisplayData state={this.state} />  
+      </div>
+
       </div>
     );
   }
