@@ -13,3 +13,7 @@
 .display {
   display: none;
 }
+
+.displayOn {
+  display: block;
+}

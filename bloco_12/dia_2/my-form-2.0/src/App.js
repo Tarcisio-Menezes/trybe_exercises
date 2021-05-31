@@ -73,7 +73,7 @@ class App extends React.Component {
   showData() {
     const display = document.getElementsByClassName('display')[0];
 
-    display.classList.toggle('display');
+    display.classList.add('displayOn');
   }
 
   render() {
