@@ -11,7 +11,7 @@ class Home extends React.Component {
           <Link to="/contact">Contato</Link>
           <Link to="/about">Sobre</Link>
         </nav>
-        Eu sou a página inicial
+        <h1>Bem vindo a minha página</h1>
       </section>
     );
   }
