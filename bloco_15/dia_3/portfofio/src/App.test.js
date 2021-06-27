@@ -1,10 +1,11 @@
 import React from 'react';
 import renderWithRouter from './renderWithRouter';
 import { fireEvent } from '@testing-library/react';
+import App from './App';
 import Main from './pages/Main';
 
 it('Renderiza página inicial?', () => {
-  const { getByText } = renderWithRouter(<Main />);
+  const { getByText } = renderWithRouter(<App />);
   const home = getByText(/Bem vindo a minha página/i);
   expect(home).toBeInTheDocument();
 });
