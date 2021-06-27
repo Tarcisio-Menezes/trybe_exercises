@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
 
 class Home extends React.Component {
   render() {
@@ -8,13 +7,18 @@ class Home extends React.Component {
     return(
       <section className="classHome">
         <nav className="navigator">
+          <Link to="/">Inicio</Link>
           <Link to="/works">Trabalhos</Link>
           <Link to="/contact">Contato</Link>
           <Link to="/about">Sobre</Link>
         </nav>
         <div>
-          <h1>Bem vindo a minha página!</h1>
-          <h3>Tarcísio Menezes - Desenvolvedor Full-Stack</h3>
+          <h1>
+            Sej@ bem vind@ a minha página!
+          </h1>
+          <h3>
+            Tarcísio Menezes - Desenvolvedor Full-Stack
+          </h3>
         </div>
       </section>
     );

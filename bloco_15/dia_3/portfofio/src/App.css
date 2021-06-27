@@ -1,3 +1,98 @@
+body {
+  display: flex;
+  background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/potw2031a.jpg");
+  background-position: center fixed;
+  color: whitesmoke;
+}
+
 .App {
   text-align: center;
+}
+
+.classHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 45%;
+  color:cornflowerblue;
+  opacity: 80%;
+  margin-left: 5%;
+  width: max-content;
+}
+
+.navigator {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigator a:hover {
+  color: rgb(68, 68, 106);
+  text-decoration-line: none;
+}
+
+.navigator a:active {
+  color: rgb(63, 124, 236);
+}
+
+.navigator a {
+  color: cornflowerblue;
+}
+
+.classHome div h1 {
+  display: flex;
+  align-self: flex-start;
+  text-align: center;
+}
+
+.classHome div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.classHome div h3 {
+  display: flex;
+  align-items: center;
+}
+
+.classHome:hover {
+  opacity: 100%;
+}
+
+.classContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60%;
+  color:cornflowerblue;
+  margin-left: 70%;
+  width: max-content;
+  padding: 3%;
+  opacity: 70%;
+}
+
+.classContact:hover {
+  opacity: 100%;
+}
+
+.classContact div h1 {
+  color: cornflowerblue;
+}
+
+.classContact div a {
+  color: cornflowerblue;
+}
+
+.classContact section a {
+  text-decoration-line: none;
+}
+
+.classContact section a:hover {
+  text-decoration-line: none;
+  color: rgb(68, 68, 106);
+}
+
+.classContact section a:active {
+  text-decoration-line: none;
+  color: cornflowerblue;
 }
