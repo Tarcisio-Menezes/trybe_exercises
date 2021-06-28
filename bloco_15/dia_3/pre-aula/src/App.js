@@ -1,23 +1,24 @@
-// Isto não é uma boa prática 2 componentes em um
-// efeitos didáticos
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import NoMatch from './NoMatch';
+import About from './About';
 
-export const About = () => <h1>Você está na página Sobre</h1>;
-export const Home = () => <h1>Você está na página Início</h1>;
-export const NoMatch = () => <h1>Página não encontrada</h1>;
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Link to="/">Início</Link>
+        <br />
+        <Link to="/about">Sobre</Link>
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/about" component={ About } />
+          <Route component={ NoMatch } />
+        </Switch>
+      </div>
+    );
+  }
+}
+export default App;
 
-export default function App() {
-  return (
-    <div>
-      <Link to="/">Início</Link>
-      <br />
-      <Link to="/about">Sobre</Link>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  );
-};

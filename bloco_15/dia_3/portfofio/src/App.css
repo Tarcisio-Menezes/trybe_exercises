@@ -1,28 +1,26 @@
 body {
+  margin: 0;
   display: flex;
   background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/potw2031a.jpg");
-  background-position: center fixed;
-  color: whitesmoke;
-}
-
-.App {
-  text-align: center;
+  background-position: fixed center;
 }
 
 .classHome {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 45%;
+  margin-top: 60%;
   color:cornflowerblue;
-  opacity: 80%;
-  margin-left: 5%;
+  margin-left: 70%;
   width: max-content;
+  padding: 3%;
+  opacity: 70%;
 }
 
 .navigator {
   display: flex;
   justify-content: space-around;
+  padding: 3%;
 }
 
 .navigator a:hover {

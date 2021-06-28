@@ -8,25 +8,27 @@ class Contact extends React.Component {
   render() {
 
     return(
-      <section className="classContact">
+      <div className="mainContact">
         <nav className="navigator">
           <Link to="/">Inicio</Link>
           <Link to="/works">Trabalhos</Link>
           <Link to="/contact">Contato</Link>
           <Link to="/about">Sobre</Link>
         </nav>
-        <div>
-          <h1>Entre em contato!</h1>
-          <section>
-            <p> <BiMessageRounded /> tarcisioquim@gmail.com</p>
-            <FaPhoneAlt /> 16 996314645
-            <br /> <br />
-            <a href="https://github.com/Tarcisio-Menezes" target="blank"><FaGithub /> GitHub</a>
-            <br /> <br />
-            <a href="https://www.linkedin.com/in/tarcísio-menezes/" target="blank"><FaLinkedinIn /> Linkedin</a>
-          </section>
-        </div>
-      </section>
+        <section className="classContact">
+          <div>
+            <h1>Entre em contato!</h1>
+            <section>
+              <p> <BiMessageRounded /> tarcisioquim@gmail.com</p>
+              <FaPhoneAlt /> 16 996314645
+              <br /> <br />
+              <a href="https://github.com/Tarcisio-Menezes" target="blank"><FaGithub /> GitHub</a>
+              <br /> <br />
+              <a href="https://www.linkedin.com/in/tarcísio-menezes/" target="blank"><FaLinkedinIn /> Linkedin</a>
+            </section>
+          </div>
+        </section>
+      </div>
     );
   }
 }
