@@ -81,72 +81,71 @@ class Form extends React.Component {
  
     return (
       <div className="personal">  
-      <h1 className="title">Cadastre seu currículo conosco</h1>
-      <form action="" method="get">
-      <Name
-        value={ this.state.name }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <Email
-        value={ this.state.email }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <Cpf
-        value={ this.state.cpf }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <End
-        value={ this.state.end }
-        readForm={ this.readForm }
-        validEnd={ this.validEnd }
-      />
-      <br></br>
-      <City
-        value={ this.state.city }
-        readForm={ this.readForm }
-        validCity={ this.validCity }
-      />
-      <br></br>
-      <State
-        value={ this.state.state }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <Type
-        value={ this.state.type }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <LastJob
-        value={ this.state.jobs }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <Office
-        value={ this.state.office }
-        readForm={ this.readForm }
-        officeAlert={ this.officeAlert }
-      />
-      <br></br>
-      <JobDescription
-        value={ this.state.jobDescription }
-        readForm={ this.readForm }
-      />
-      <br></br>
-      <div className="buttons">
-      <SucessButton
-      save={ () => this.sendData } />
-      </div>
-      </form>
+        <h1 className="title">Cadastre seu currículo conosco</h1>
+        <form action="" method="get">
+          <Name
+            value={ this.state.name }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <Email
+            value={ this.state.email }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <Cpf
+            value={ this.state.cpf }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <End
+            value={ this.state.end }
+            readForm={ this.readForm }
+            validEnd={ this.validEnd }
+          />
+          <br></br>
+          <City
+            value={ this.state.city }
+            readForm={ this.readForm }
+            validCity={ this.validCity }
+          />
+          <br></br>
+          <State
+            value={ this.state.state }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <Type
+            value={ this.state.type }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <LastJob
+            value={ this.state.jobs }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <Office
+            value={ this.state.office }
+            readForm={ this.readForm }
+            officeAlert={ this.officeAlert }
+          />
+          <br></br>
+          <JobDescription
+            value={ this.state.jobDescription }
+            readForm={ this.readForm }
+          />
+          <br></br>
+          <div className="buttons">
+          <SucessButton
+            save={ () => this.sendData }
+          />
+          </div>
+        </form>
 
-      <div className="display">
-      <DisplayData
-        state={ this.state }
-      />  
-      </div>
+        <div className="display">
+          <DisplayData />  
+        </div>
 
       </div>
     );

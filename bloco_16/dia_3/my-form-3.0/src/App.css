@@ -11,9 +11,11 @@
 }
 
 .display {
-  display: none;
+  display: block;
+  border-style: solid;
 }
 
-.displayOn {
-  display: block;
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

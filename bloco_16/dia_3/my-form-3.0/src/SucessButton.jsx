@@ -7,6 +7,7 @@ class SucessButton extends React.Component {
       <div>      
         <div className="control">
         <button
+          type="submit"
           name="displayData"
           value={ true }
           className="button is-primary"

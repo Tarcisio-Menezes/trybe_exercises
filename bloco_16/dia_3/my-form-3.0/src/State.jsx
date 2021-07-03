@@ -17,7 +17,7 @@ class State extends React.Component {
             required
             >
               <option>Selecione o seu estado</option>
-              {states.map((state) => <option value={ state }> { state }</option>)}            
+              {states.map((state, index) => <option key={ index } value={ state }> { state }</option>)}            
           </select>
         </div>
 

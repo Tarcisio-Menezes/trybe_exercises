@@ -1,29 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class DisplayData extends React.Component {
 
   render() {
-    const { state } = this.props;
+    const { registers } = this.props;
 
     return (
 
       <div>
-        <h2>Informações pessoais</h2>
-        <p>Nome: {state.name}</p>
-        <p>E-mail: {state.email}</p>
-        <p>CPF: {state.cpf}</p>
-        <p>Endereço: {state.end}</p>
-        <p>Cidade: {state.city}</p>
-        <p>Estado: {state.state}</p>
-        <p>Tipo: {state.type}</p>
-
-        <h2>Informações das últimas experiências</h2>
-        <p>Resumo do currículo: {state.jobs}</p>
-        <p>Cargo: {state.office}</p>
-        <p>Descrição do cargo: {state.jobDescription}</p>
-      </div>
+        {registers.map((register, index) => {
+            return (
+              <div key={register.email}>
+                <p>ID de registro: {index + 1}</p>
+                <p>Nome: {register.name}</p>
+                <p>Email: {register.email}</p>
+                <p>CPF: {register.cpf}</p>
+                <p>Cidade: {register.city}</p>
+                <p>Endereço: {register.end}</p>
+                <p>Estado: {register.state}</p>
+                <p>Tipo: {register.type}</p>
+                <p>Último emprego: {register.lastJob}</p>
+                <p>Descrição: {register.jobDescription}</p>
+                <p>Cargo pretendido: {register.office}</p>
+              </div>
+            );
+        })} 
+       </div>
     )
   }
 }
 
-export default DisplayData;
+const mapStateToProps = state => ({
+  registers: state.formReducer
+});
+
+export default connect(mapStateToProps)(DisplayData);

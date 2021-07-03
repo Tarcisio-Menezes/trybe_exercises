@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Provider store={store} >
+      <Provider store={ store } >
         <Form />
       </Provider>
     </div>

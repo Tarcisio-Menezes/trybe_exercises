@@ -1,4 +1,4 @@
-export const saveForm = (name, value) => ({
+export const saveForm = (value) => ({
   type: 'SAVEFORM',
-  [name]: value,
+  value,
 });
