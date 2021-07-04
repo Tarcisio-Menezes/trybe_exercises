@@ -71,7 +71,8 @@ class Form extends React.Component {
     };
   }
 
-  sendData() {
+  sendData(event) {
+    event.preventDefault();
     const { name, email, cpf, end, city, state, type,
       jobs, office, mouseEnter, jobDescription } = this.state;
     this.props.saveForm({ name, email, cpf, end, city, state, type, jobs, office, mouseEnter, jobDescription });
@@ -137,12 +138,12 @@ class Form extends React.Component {
             readForm={ this.readForm }
           />
           <br></br>
+          <div className="buttons">
+            <SucessButton
+              save={ this.sendData }
+            />
+          </div>
         </form>
-        <div className="buttons">
-          <SucessButton
-            save={ this.sendData }
-          />
-        </div>
         <div className="display">
           <DisplayData />  
         </div>

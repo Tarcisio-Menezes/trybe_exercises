@@ -20,7 +20,7 @@ class DisplayData extends React.Component {
                 <p>Endereço: {register.end}</p>
                 <p>Estado: {register.state}</p>
                 <p>Tipo: {register.type}</p>
-                <p>Último emprego: {register.lastJob}</p>
+                <p>Resumo do Currículo: {register.jobs}</p>
                 <p>Descrição: {register.jobDescription}</p>
                 <p>Cargo pretendido: {register.office}</p>
               </div>
