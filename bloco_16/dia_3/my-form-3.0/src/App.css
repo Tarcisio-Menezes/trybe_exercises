@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.personal {
+  display: flex;
+  flex-direction: column;
+  flex-basis: content;
+  align-items: center;
+  padding: 5%;
+}
+
+.display {
+  display: block;
+  border-style: solid;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
