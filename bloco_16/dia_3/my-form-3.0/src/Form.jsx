@@ -75,6 +75,7 @@ class Form extends React.Component {
     const { name, email, cpf, end, city, state, type,
       jobs, office, mouseEnter, jobDescription } = this.state;
     this.props.saveForm({ name, email, cpf, end, city, state, type, jobs, office, mouseEnter, jobDescription });
+    console.log('estoy aqui hermano! AArrrriba');
   }
 
   render() {
@@ -136,13 +137,12 @@ class Form extends React.Component {
             readForm={ this.readForm }
           />
           <br></br>
-          <div className="buttons">
-          <SucessButton
-            save={ () => this.sendData }
-          />
-          </div>
         </form>
-
+        <div className="buttons">
+          <SucessButton
+            save={ this.sendData }
+          />
+        </div>
         <div className="display">
           <DisplayData />  
         </div>
