@@ -1,40 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import useAbility from './hooks/useAbility';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [limit, setLimit] = useState(10);
+  const [abilities, setPokeUrl] = useAbility();
 
   const handleMorePokemons = () => {
     setLimit(limit + 10);
-    console.log(limit);
   };
 
-
-  // Nesse caso, utilizamos o limit como segundo argumento no useEffect, 
-  // pois dessa forma, ao clicar no botão, o estado será atualizado
-  // e irá trazer mais dez pokemons da lista.
-
-   useEffect(() => {
-     const getPokemons = async () => {
-      const endpoint = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
-      const { results } = await fetch(endpoint).then((data) => data.json());
-      setPokemons(results)
+  useEffect(() => {
+    const getPokemons = async () => {
+     const endpoint = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
+     const { results } = await fetch(endpoint).then((data) => data.json());
+     setPokemons(results)
     }
 
     getPokemons();
   }, [limit]);
-
-  // A sintaxe abaixo é análoga ao componentWillUnmount, para utilizá-la é necessário a chamada de uma callback dentro do useEffect.
-
-  // useEffect(() => () => alert('unmount), [])
-
+ 
   return (
     <div>
       <h1>Trybe Go</h1>
+      <p>{ abilities.toString() }</p>
       <button type="button" onClick={handleMorePokemons}>Buscar +10</button>
       <ul>
         {
-          pokemons.map(({ name }) => <li key={name} >{name}</li>)
+          pokemons.map(({ name, url }) => <li key={name} onClick={() => setPokeUrl(url)} >{name}</li>)
         }
       </ul>
     </div>
