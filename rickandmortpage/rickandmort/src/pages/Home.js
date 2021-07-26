@@ -16,6 +16,18 @@ function Home() {
     getPersons();
   }, []);
 
+  function listConditinal() {
+    if(persons) {
+      return (
+        <ul>
+        {
+          (persons.results).map((item, index) => <li key={index}> <img src={item.image} alt={item.name} width="300px"/> <p>{item.name}</p> <p>Espécie: {item.species} </p> <p>Status: {item.status}</p> <p>Location: {item.location.name}</p> </li>)
+        }
+      </ul>
+      );
+    };
+  }
+
   return (
     <div>
       <nav>
@@ -30,11 +42,7 @@ function Home() {
         </Link>
       </nav>
       <h1>Bem vindo ao Rick and Mort fã page</h1>
-      <ul>
-        {
-          (persons.results).map((item, index) => <li key={index}> <img src={item.image} alt={item.name} width="300px"/> <p>{item.name}</p> <p>Espécie: {item.species} </p> <p>Status: {item.status}</p> </li>)
-        }
-      </ul>
+      { listConditinal() }
     </div>
   );
 }

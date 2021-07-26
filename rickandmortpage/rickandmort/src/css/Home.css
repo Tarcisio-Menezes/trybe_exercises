@@ -4,6 +4,9 @@ ul {
 }
 
 ul li {
+  border-color: greenyellow;
+  border-style: solid;
+  margin: 3%;
   padding: 1%;
   list-style-type: none;
 }
