@@ -17,7 +17,7 @@ function Episode() {
     getPersons() && setLoading(false);
   }, []);
 
-  console.log(episodes)
+  // console.log(episodes)
 
   function listConditinal() {
     if(loading || !episodes) {
