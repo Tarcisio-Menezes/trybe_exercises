@@ -31,9 +31,13 @@ nav {
   padding: 1%;
 }
 
-a, p {
+a, p, h3, input {
   color: greenyellow;
   display: flex;
   justify-content: center;
   text-decoration: none;
+}
+
+input {
+  margin: auto;
 }
