@@ -5,27 +5,30 @@ import '../css/Home.css';
 function Home() {
 
   const [persons, setPersons] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPersons = async () => {
      const endpoint = `https://rickandmortyapi.com/api/character`;
-     const results = await fetch(endpoint).then((data) => data.json());
+     const { results } = await fetch(endpoint).then((data) => data.json());
      setPersons(results)
     }
 
-    getPersons();
+    getPersons() && setLoading(false);
   }, []);
 
+  console.log(persons);
+
   function listConditinal() {
-    if(persons) {
-      return (
-        <ul>
-        {
-          (persons.results).map((item, index) => <li key={index}> <img src={item.image} alt={item.name} width="300px"/> <p>{item.name}</p> <p>Espécie: {item.species} </p> <p>Status: {item.status}</p> <p>Location: {item.location.name}</p> </li>)
-        }
-      </ul>
-      );
-    };
+    if(loading || !persons) {
+      return <p>Carregando...</p>
+    } return (
+      <ul>
+      {
+        (persons).map((item, index) => <li key={index}> <img src={item.image} alt={item.name} width="300px"/> <p>{item.name}</p> <p>Espécie: {item.species} </p> <p>Status: {item.status}</p> <p>Location: {item.location.name}</p> </li>)
+      }
+    </ul>
+    );
   }
 
   return (
