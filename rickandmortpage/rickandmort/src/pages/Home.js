@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 import '../css/Home.css';
 
 function Home() {
@@ -56,17 +56,7 @@ function Home() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">
-          Home
-        </Link>
-        <Link to="/Episode">
-          Episódios
-        </Link>
-        <Link to="/About">
-          Sobre
-        </Link>
-      </nav>
+     <Nav />
       <h1>Bem vindo ao Rick and Mort fã page</h1>
       <h3> Você pode ver mais personagens alterando o valor numérico da página</h3>
       <input

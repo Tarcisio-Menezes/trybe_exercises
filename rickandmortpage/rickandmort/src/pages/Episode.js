@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 import '../css/Episode.css';
 
 function Episode() {
@@ -37,17 +37,7 @@ function Episode() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">
-          Home
-        </Link>
-        <Link to="/Episode">
-          Episódios
-        </Link>
-        <Link to="/About">
-          Sobre
-        </Link>
-      </nav>
+      <Nav />
       <h1>Episódios</h1>
       { listConditinal() }
     </div>

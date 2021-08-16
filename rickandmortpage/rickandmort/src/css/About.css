@@ -1,0 +1,6 @@
+a, p, h2 {
+  color: greenyellow;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
