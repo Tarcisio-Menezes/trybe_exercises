@@ -51,11 +51,12 @@ input {
   }
 
   li img {
+    align-self: center;
     width: 250px;
   }
 
   li {
-    width: min-content;
+    width: fit-content;
   }
 
 }
