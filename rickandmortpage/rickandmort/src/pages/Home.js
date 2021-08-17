@@ -9,9 +9,6 @@ function Home() {
   const [newPersons, setNewPersons] = useState('');
   const [searchName, setSearchName] = useState('');
   const [searchStatus, setSearchStatus] = useState('');
-  const [searchSpecies, setSearchSpecies] = useState('');
-  const [searchType, setSearchType] = useState('');
-  const [searchGender, setSearchGender] = useState('');
 
   useEffect(() => {
     const getPersons = async () => {
@@ -37,14 +34,13 @@ function Home() {
 
   useEffect(() => {
     const getNamePersons = async () => {
-      const endpoint = `https://rickandmortyapi.com/api/character/?name=${searchName}
-        &status=${searchStatus}&${searchSpecies}&${searchType}&${searchGender}`;
-        const { results } = await fetch(endpoint).then((data) => data.json());
+      const endpoint = `https://rickandmortyapi.com/api/character/?name=${searchName}&status=${searchStatus}`;
+      const { results } = await fetch(endpoint).then((data) => data.json());
       setPersons(results)
     }
 
     getNamePersons() && setLoading(false);
-  }, [searchGender, searchName, searchSpecies, searchStatus, searchType]);
+  }, [searchName, searchStatus]);
 
   function listConditinal() {
     if(loading || !persons) {
@@ -90,27 +86,6 @@ function Home() {
           <option value="dead"> dead </option>
           <option value="unknow"> unknow </option>
         </select>
-        <input
-          type="text"
-          placeholder="Espécie"
-          onChange={ (e) => setSearchSpecies((e.target.value).toLowerCase()) }
-        >
-        </input>
-        <input
-          type="text"
-          placeholder="Tipo"
-          onChange={ (e) => setSearchType((e.target.value).toLowerCase()) }
-        >
-        </input>
-        <select
-          onChange={ (e) => setSearchGender(e.target.value) }
-        >
-          <option value="female"> female </option>
-          <option value="male"> male </option>
-          <option value="genderless"> genderless </option>
-          <option value="unknow"> unknow </option>
-        </select>
-
       </section>
       { listConditinal() }
     </div>
