@@ -1,45 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Nav from '../components/Nav';
+import MainContext from '../context/MainContext';
+import { getNamePersons, getNewPersons, getPersons } from '../services/SearchAPI';
 import '../css/Home.css';
+import Inputs from '../components/Inputs';
 
 function Home() {
-
-  const [persons, setPersons] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [newPersons, setNewPersons] = useState('');
-  const [searchName, setSearchName] = useState('');
-  const [searchStatus, setSearchStatus] = useState('');
+  const { 
+    persons,
+    setPersons,
+    newPersons,
+    searchName,
+    searchStatus,
+    } = useContext(MainContext);
 
   useEffect(() => {
-    const getPersons = async () => {
-     const endpoint = `https://rickandmortyapi.com/api/character`;
-     const { results } = await fetch(endpoint).then((data) => data.json());
-     setPersons(results)
+    async function getCharacter() {
+      const { results } = await getPersons();
+      setPersons(results);
     }
-
-    getPersons() && setLoading(false);
+  
+    getCharacter() && setLoading(false);
   }, []);
 
   // console.log(persons);
 
   useEffect(() => {
-    const getNewPersons = async () => {
-     const endpoint = `https://rickandmortyapi.com/api/character/?page=${newPersons}`;
-     const { results } = await fetch(endpoint).then((data) => data.json());
-     setPersons(results)
+    async function getNewCharacter() {
+      const { results } = await getNewPersons(newPersons);
+      setPersons(results);
     }
-
-    getNewPersons() && setLoading(false);
+    getNewCharacter() && setLoading(false);
   }, [newPersons]);
 
   useEffect(() => {
-    const getNamePersons = async () => {
-      const endpoint = `https://rickandmortyapi.com/api/character/?name=${searchName}&status=${searchStatus}`;
-      const { results } = await fetch(endpoint).then((data) => data.json());
-      setPersons(results)
+    async function getNameCharacter() {
+      const { results } = await getNamePersons(searchName, searchStatus);
+      setPersons(results);
     }
-
-    getNamePersons() && setLoading(false);
+    getNameCharacter() && setLoading(false);
   }, [searchName, searchStatus]);
 
   function listConditinal() {
@@ -49,7 +49,11 @@ function Home() {
       <ul>
       {
           persons.map((item, index) => <li key={index}> 
-            <img src={item.image} alt={item.name} width="300px"/> 
+            <img
+              src={item.image}
+              alt={item.name}
+              width="300px"
+            /> 
             <p>{item.name}</p>
             <p>Espécie: {item.species} </p>
             <p>Status: {item.status}</p>
@@ -64,29 +68,8 @@ function Home() {
     <div>
      <Nav />
       <h1>Bem vindo ao Rick and Mort fã page</h1>
-      <h3> Você pode ver mais personagens alterando os filtros</h3>
-      <section>
-        <input
-          type="number"
-          placeholder="Page number"
-          onChange={ (e) => setNewPersons(e.target.value) }
-          min="0"
-        >
-        </input>
-        <input
-          type="text"
-          placeholder="Nome do personagem"
-          onChange={ (e) => setSearchName((e.target.value).toLowerCase()) }
-        >
-        </input>
-        <select
-          onChange={ (e) => setSearchStatus(e.target.value) }
-        >
-          <option value="alive"> alive </option>
-          <option value="dead"> dead </option>
-          <option value="unknow"> unknow </option>
-        </select>
-      </section>
+      <h3> Você pode explorar mais personagens alterando os filtros!</h3>
+      <Inputs />
       { listConditinal() }
     </div>
   );

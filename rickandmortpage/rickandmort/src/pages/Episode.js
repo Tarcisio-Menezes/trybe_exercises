@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import '../css/Episode.css';
+import { getEpisodes } from '../services/SearchAPI';
 
 function Episode() {
 
@@ -9,8 +10,7 @@ function Episode() {
 
   useEffect(() => {
     const getPersons = async () => {
-     const endpoint = `https://rickandmortyapi.com/api/episode`;
-     const { results } = await fetch(endpoint).then((data) => data.json());
+     const { results } = await getEpisodes();
      setEpisodes(results)
     }
 
@@ -39,6 +39,7 @@ function Episode() {
     <div>
       <Nav />
       <h1>Episódios</h1>
+      <p>Em construção...</p>
       { listConditinal() }
     </div>
   );
