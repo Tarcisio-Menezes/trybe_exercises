@@ -6,7 +6,12 @@ function Home() {
 
   const [persons, setPersons] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [newPersons, setNewPersons] = useState([]);
+  const [newPersons, setNewPersons] = useState('');
+  const [searchName, setSearchName] = useState('');
+  const [searchStatus, setSearchStatus] = useState('');
+  const [searchSpecies, setSearchSpecies] = useState('');
+  const [searchType, setSearchType] = useState('');
+  const [searchGender, setSearchGender] = useState('');
 
   useEffect(() => {
     const getPersons = async () => {
@@ -21,14 +26,25 @@ function Home() {
   // console.log(persons);
 
   useEffect(() => {
-    const getPersons = async () => {
+    const getNewPersons = async () => {
      const endpoint = `https://rickandmortyapi.com/api/character/?page=${newPersons}`;
      const { results } = await fetch(endpoint).then((data) => data.json());
      setPersons(results)
     }
 
-    getPersons() && setLoading(false);
+    getNewPersons() && setLoading(false);
   }, [newPersons]);
+
+  useEffect(() => {
+    const getNamePersons = async () => {
+      const endpoint = `https://rickandmortyapi.com/api/character/?name=${searchName}
+        &status=${searchStatus}&${searchSpecies}&${searchType}&${searchGender}`;
+        const { results } = await fetch(endpoint).then((data) => data.json());
+      setPersons(results)
+    }
+
+    getNamePersons() && setLoading(false);
+  }, [searchGender, searchName, searchSpecies, searchStatus, searchType]);
 
   function listConditinal() {
     if(loading || !persons) {
@@ -36,19 +52,13 @@ function Home() {
     } return (
       <ul>
       {
-        persons ? persons.map((item, index) => <li key={index}> 
-          <img src={item.image} alt={item.name} width="300px"/> 
-          <p>{item.name}</p>
-          <p>Espécie: {item.species} </p>
-          <p>Status: {item.status}</p>
-          <p>Localização: {item.location.name}</p> 
-          </li>) : newPersons.map((item, index) => <li key={index}> 
-          <img src={item.image} alt={item.name} width="300px"/> 
-          <p>{item.name}</p>
-          <p>Espécie: {item.species} </p>
-          <p>Status: {item.status}</p>
-          <p>Localização: {item.location.name}</p> 
-          </li>)
+          persons.map((item, index) => <li key={index}> 
+            <img src={item.image} alt={item.name} width="300px"/> 
+            <p>{item.name}</p>
+            <p>Espécie: {item.species} </p>
+            <p>Status: {item.status}</p>
+            <p>Localização: {item.location.name}</p> 
+            </li>)
       }
     </ul>
     );
@@ -58,13 +68,50 @@ function Home() {
     <div>
      <Nav />
       <h1>Bem vindo ao Rick and Mort fã page</h1>
-      <h3> Você pode ver mais personagens alterando o valor numérico da página</h3>
-      <input
-      type="number"
-      placeholder="Page number"
-      onChange={ (e) => setNewPersons(e.target.value) }
-      >
-      </input>
+      <h3> Você pode ver mais personagens alterando os filtros</h3>
+      <section>
+        <input
+          type="number"
+          placeholder="Page number"
+          onChange={ (e) => setNewPersons(e.target.value) }
+          min="0"
+        >
+        </input>
+        <input
+          type="text"
+          placeholder="Nome do personagem"
+          onChange={ (e) => setSearchName((e.target.value).toLowerCase()) }
+        >
+        </input>
+        <select
+          onChange={ (e) => setSearchStatus(e.target.value) }
+        >
+          <option value="alive"> alive </option>
+          <option value="dead"> dead </option>
+          <option value="unknow"> unknow </option>
+        </select>
+        <input
+          type="text"
+          placeholder="Espécie"
+          onChange={ (e) => setSearchSpecies((e.target.value).toLowerCase()) }
+        >
+        </input>
+        <input
+          type="text"
+          placeholder="Tipo"
+          onChange={ (e) => setSearchType((e.target.value).toLowerCase()) }
+        >
+        </input>
+        <select
+          onChange={ (e) => setSearchGender(e.target.value) }
+        >
+          <option value="female"> female </option>
+          <option value="male"> male </option>
+          <option value="genderless"> genderless </option>
+          <option value="unknow"> unknow </option>
+        </select>
+
+      </section>
       { listConditinal() }
     </div>
   );

@@ -39,7 +39,11 @@ a, p, h3, input {
 }
 
 input {
+  color: black;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 680px) {
