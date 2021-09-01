@@ -1,0 +1,5 @@
+mysqldump -u tarcisio -p sakila > sakilabackup.skl -- fazem backup com dados
+
+mysqldump -u tarcisio -p --no-data sakila > sakilabackupSemdata.skl --fazer backup sem dados somente estrutura
+
+mysqldump -u tarcisio -p sakila < sakilabackup.skl  --executar backup
