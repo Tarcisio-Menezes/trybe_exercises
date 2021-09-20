@@ -89,15 +89,149 @@ Utilizando o banco de dados storage , faça o seguinte exercício:
 Calcule qual o lucro total de cada produto, considerando o preço de compra, os impostos e seu valor de venda.
 db.products.aggregate([{$project: {name: 1, lucro: {$subtract: ["$sale_price", {$add: ["$purchase_price", "$taxes"]}] }}}]);
 
+-- Expressão $ceil
+
+A expressão $ceil basicamente arredonda o número especificado para "cima".
+db.samples.aggregate([ { $project: { value: 1, ceilingValue: { $ceil: "$value" } } } ]);
+
+O valor original também é retornado:
+
+{ "_id" : 1, "value" : 9.25, "ceilingValue" : 10 }
+{ "_id" : 2, "value" : 8.73, "ceilingValue" : 9 }
+{ "_id" : 3, "value" : 4.32, "ceilingValue" : 5 }
+{ "_id" : 4, "value" : -5.34, "ceilingValue" : -5 }
+
+-- Expressão $floor
+
+Já a expressão $floor retorna o maior número inteiro menor ou igual ao número especificado, ou seja, faz um arredondamento para baixo.
+db.samples.aggregate([{ $project: { value: 1, floorValue: { $floor: "$value" } } }]);
 
 
+-- Expressão $round
+
+A expressão $round retorna o número inteiro mais próximo do valor atual e também permite definir a quantidade de casas decimais que você quer manter ao arredondar.
+db.samples.aggregate([{ $project: { value: 1, roundedValue: { $round: ["$value", 1] } } } ]);
 
 
+-- Expressão $abs
+
+A expressão $abs retorna o valor absoluto de um número.
+
+db.ratings.aggregate([{project: { delta: { abs: { $subtract: ["$start", "$end"] } } }}]);
 
 
+-- Expressão $multiply
+
+A expressão $multiply multiplica dois valores numéricos.
 
 
+db.sales.aggregate([
+  {
+project: {
+      date: 1,
+      item: 1,
+      total: {
+multiply: ["$price", "$quantity"]
+      }
+    }
+  }
+]);
+
+-- Expressão $divide
+
+A expressão $divide , como o próprio nome sugere, divide dois valores. O primeiro argumento é o dividendo , e o segundo é o divisor .
+
+db.planning.aggregate([
+  {
+project: {
+      name: 1,
+      workdays: {
+divide: ["$hours", 8]
+      }
+    }
+  }
+]);
 
 
+-- Estágio $addFields
+
+O $addFields é um estágio que adiciona novos campos aos documentos. A saída desse estágio conterá todos os campos existentes nos documentos de entrada e adicionará os novos campos especificados.
+Você pode incluir subdocumentos ou arrays de subdocumentos, utilizando o conceito de dot notation . Um pipeline pode conter mais de um estágio $addFields 
+
+{
+  _id: 1,
+  student: "Maya",
+  homework: [10, 5, 10],
+  quiz: [10, 8],
+  extraCredit: 0
+},
+{
+  _id: 2,
+  student: "Ryan",
+  homework: [5, 6, 5],
+  quiz: [8, 8],
+  extraCredit: 8
+}
+
+
+A operação de agregação abaixo utiliza o $addFields duas vezes para incluir três novos campos nos documentos de saída:
+
+Considere os documentos abaixo na coleção scores :
+
+{
+  _id: 1,
+  student: "Maya",
+  homework: [10, 5, 10],
+  quiz: [10, 8],
+  extraCredit: 0
+},
+{
+  _id: 2,
+  student: "Ryan",
+  homework: [5, 6, 5],
+  quiz: [8, 8],
+  extraCredit: 8
+}
+
+
+db.scores.aggregate([
+  {
+addFields: {
+      totalHomework: { $sum: "$homework" } ,
+      totalQuiz: { $sum: "$quiz" }
+    }
+  },
+  {
+addFields: {
+      totalScore: {
+add: [ "$totalHomework", "$totalQuiz", "$extraCredit" ]
+      }
+    }
+  }
+]);
+
+
+Note que o resultado mantém os campos originais do documento de entrada, juntamente com os três novos campos adicionados:
+
+{
+  "_id" : 1,
+  "student" : "Maya",
+  "homework" : [ 10, 5, 10 ],
+  "quiz" : [ 10, 8 ],
+  "extraCredit" : 0,
+  "totalHomework" : 25,
+  "totalQuiz" : 18,
+  "totalScore" : 43
+}
+{
+  "_id" : 2,
+  "student" : "Ryan",
+  "homework" : [ 5, 6, 5 ],
+  "quiz" : [ 8, 8 ],
+  "extraCredit" : 8,
+  "totalHomework" : 16,
+  "totalQuiz" : 16,
+  "totalScore" : 40
+}
 
 
