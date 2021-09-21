@@ -1,0 +1,183 @@
+db.articles.insertMany([
+{ _id: ObjectId("512bc95fe835e68f199c8686"), author: "dave", score: 80, views: 100 },
+{ _id: ObjectId("512bc962e835e68f199c8687"), author: "dave", score: 85, views: 521 },
+{ _id: ObjectId("55f5a192d4bede9ac365b257"), author: "ahn", score: 60, views: 1000 },
+{ _id: ObjectId("55f5a192d4bede9ac365b258"), author: "li", score: 55, views: 5000 },
+{ _id: ObjectId("55f5a1d3d4bede9ac365b259"), author: "annT", score: 60, views: 50 },
+{ _id: ObjectId("55f5a1d3d4bede9ac365b25a"), author: "li", score: 94, views: 999 },
+{ _id: ObjectId("55f5a1d3d4bede9ac365b25b"), author: "ty", score: 95, views: 1000 }
+])
+
+-- $match
+
+db.articles.aggregate([{$match: {"author": "dave"}}]);
+
+db.articles.aggregate([{$match: {$or: [{"score": {$gt: 70, $lt: 90}}, {"views": {$gte: 1000}}]}}]);
+
+-- $limit
+
+db.articles.aggregate([{$limit: 5}]);
+
+-- exercicio
+
+use agg_example;
+db.transactions.insertMany([
+  { value: 5900, from: "Dave America", to: "Ned Flanders", bank: 'International' },
+  { value: 1000, from: "Mark Zuck", to: "Edna Krabappel", bank: 'FloridaBank' },
+  { value: 209, from: "Lisa Simpson", to: "Dave America", bank: 'bankOfAmerica' },
+  { value: 10800, from: "Arnold Schuz", to: "Mark Zuck", bank: 'JPMorgan' },
+  { value: 850, from: "Barney Gumble", to: "Lisa Simpson", bank: 'Citigroup' },
+  { value: 76000, from: "Ned Flanders", to: "Edna Krabappel", bank: 'JPMorgan' },
+  { value: 1280, from: "Dave America", to: "Homer Simpson", bank: 'Citigroup' },
+  { value: 7000, from: "Arnold Schuz", to: "Ned Flanders", bank: 'International' },
+  { value: 59020, from: "Homer Simpson", to: "Lisa Simpson", bank: 'International' },
+  { value: 100, from: "Mark Zuck", to: "Barney Gumble", bank: 'FloridaBank' },
+]);
+
+Selecione todas as transações feitas pelo cliente chamado "Dave America".
+db.transactions.aggregate([{$match: {"from": "Dave America"}}]);
+
+Selecione todas as transações com o valor entre 700 e 6000, ou que sejam recebidas pela cliente "Lisa Simpson".
+db.transactions.aggregate([{$match: {$or: [{"to": "Lisa Simpson"}, {"value": {$gte: 700, $lte: 6000}}]}}]);
+
+Selecione três transações com o valor acima de 1000.
+db.transactions.aggregate([{$match: {"value": {$gt: 1000}}}, {$limit: 3}]);
+
+-- $project
+
+db.books.aggregate([
+  {
+project : {
+      _id: 0,
+      title : 1,
+      author : 1
+    }
+  }
+]);
+
+
+db.books.aggregate([
+  {
+project : {
+      "author.first": 0,
+      copies: 0
+    }
+  }
+]);
+
+
+-- $group
+
+Para fazer operações sobre os campos de documentos agrupados usamos operadores de acumulação.
+A seguir há uma lista com alguns dos mais utilizados:
+$addToSet : retorna um array com os valores únicos da expressão para cada grupo;
+$avg : retorna a média de valores numéricos. Valores não numéricos são ignorados;
+$first : retorna um valor do primeiro documento de cada grupo;
+$last : retorna um valor do último documento de cada grupo;
+$max : retorna o maior valor de cada grupo;
+$sum : retorna a soma de valores numéricos. Valores não numéricos são ignorados.
+
+-- Retornando valores distintos
+O operador $group também pode ser utilizado para encontrar os valores distintos de um campo. Por exemplo, se quiser saber todos os valores únicos do campo item e quantos são, faça como o exemplo seguinte:
+
+db.sales.aggregate([
+  {
+group : {
+      _id : "$item",
+      count: { $sum: 1}
+    }
+  }
+]);
+
+
+-- Exemplo 3: Somando valores
+Para saber o valor das vendas, você deve utilizar o operador $sum , que, por sua vez, aceita mais modificadores. No exemplo que se segue, multiplica-se o valor do campo price pelo valor do campo quantity :
+
+db.sales.aggregate([
+  {
+group : {
+      _id : "$item",
+      totalSaleAmount: {
+sum: {
+multiply: ["$price", "$quantity"]
+        }
+      }
+    }
+  }
+]);
+
+
+-- Exemplo 4: Having (do Mysql), combinando estágios no aggregate
+
+db.sales.aggregate([
+  // Primeiro Estágio
+  {
+group: {
+      _id : "$item",
+      totalSaleAmount: {
+sum: {
+multiply: ["$price", "$quantity"]
+        }
+      }
+    }
+  },
+  // Segundo Estágio
+  {
+match: { "totalSaleAmount": { $gte: 100 } }
+  }
+]);
+
+
+-- Selecione todos os bancos, ou seja, valores do campo bank ;
+db.transactions.aggregate([{$group: {_id: "$bank", count: {$sum: 1}}}]);
+
+
+Selecione o valor total das transações em cada banco e quantas são;
+db.transactions.aggregate([{$group: {_id: "$bank", total: {$sum: "$value"}, qty: {$sum: 1}}}]);
+
+
+Selecione o valor total de transações por banco;
+db.transactions.aggregate([{$group: {_id: "$bank", total: {$sum: "$value"}}}]);
+
+
+Selecione os bancos que têm o valor total de transações maior que 1000.
+db.transactions.aggregate([{$group: {_id: "$bank", total: {$sum: "$value"}}}, {$match: {total: {$gt: 1000}}}]);
+
+-- $unwind
+
+db.inventory.insertOne({ _id: 7, item: "ABC1", sizes: ["S", "M", "L"] });
+db.inventory.aggregate([{ $unwind : "$sizes" }]);
+O retorno é o seguinte:
+{ "_id" : 7, "item" : "ABC1", "sizes" : "S" }
+{ "_id" : 7, "item" : "ABC1", "sizes" : "M" }
+{ "_id" : 7, "item" : "ABC1", "sizes" : "L" }
+
+
+-- $lookup
+
+Utilizando o banco de dados agg_example , adicione a seguinte collection e faça os exercícios:
+
+use agg_example;
+db.clients.insertMany([
+  { name: "Dave America", State: "Florida" },
+  { name: "Ned Flanders", State: "Alasca" },
+  { name: "Mark Zuck", State: "Texas" },
+  { name: "Edna Krabappel", State: "Montana" },
+  { name: "Arnold Schuz", State: "California" },
+  { name: "Lisa Simpson", State: "Florida" },
+  { name: "Barney Gumble", State: "Texas" },
+  { name: "Homer Simpson", State: "Florida" },
+]);
+
+
+Selecione todos os clientes com as suas respectivas transações feitas;
+db.clients.aggregate([{$lookup: {from: "transactions", localField: "name", foreignField: "from", as: "transactions_docs"}}]);
+
+Selecione quatro clientes com as suas respectivas transações recebidas;
+db.clients.aggregate([{$lookup: {from: "transactions", localField: "name", foreignField: "from", as: "transactions_docs"}}, {$limit: 4}]);
+
+Selecione todos os cliente do estado da "Florida" e suas respectivas transações recebidas.
+db.clients.aggregate([{$match: {State: "Florida"}}, {$lookup: {from: "transactions", localField: "name", foreignField: "from", as: "transactions_docs"}}]);
+
+
+
