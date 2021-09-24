@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "exercise1": "node exercise1.js",
     "exercise2": "node exercise2.js",
-    "exercise3": "node exercise3.js"
+    "exercise3": "node exercise3.js",
+    "exercise4": "node exercise4.js"
   },
   "keywords": [
     "assincrono",
