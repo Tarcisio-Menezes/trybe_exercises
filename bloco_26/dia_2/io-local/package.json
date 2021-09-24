@@ -1,0 +1,19 @@
+{
+  "name": "io-local",
+  "version": "1.0.0",
+  "description": "Scripts para estudar fluxo assíncrono 26.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "exercise1": "node exercise1.js"
+  },
+  "keywords": [
+    "assincrono",
+    "promise"
+  ],
+  "author": "Tarcísio Menezes",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
