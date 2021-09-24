@@ -7,7 +7,7 @@ const vMedia = (d, t) => {
 };
 
 const randomGame = () => {
-  const rand = Math.random() * (10 - 1) + 1;
+  const rand = Math.round(Math.random() * (10 - 1) + 1, 0);
   return rand;
 };
 

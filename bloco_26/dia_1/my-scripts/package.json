@@ -1,6 +1,6 @@
 {
   "name": "my-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scripts dos exercicios pós aula ao vivo - bloco 26.1",
   "main": "index.js",
   "scripts": {

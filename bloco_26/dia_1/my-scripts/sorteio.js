@@ -8,7 +8,8 @@ const gincana = () => {
   if (sortNumber === numero) {
     console.log(`Quee demais ${nome}, você acertou, ${sortNumber}, é o número que estou pensando!! `);
   } else if (sortNumber !== numero) {
-    const tentar = question('Que pena my friend, você errou! Quer tentar adivinhar novamente? s/n ');
+    const tentar = question(`Que pena my friend, você errou! 
+    Estava pensando no número ${sortNumber} Quer tentar adivinhar novamente? s/n `);
     if (tentar === 's') {
       gincana();
     } else {
