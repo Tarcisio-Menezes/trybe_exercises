@@ -17,6 +17,6 @@ const calculator = new Promise((resolve, reject) => {
     resolve(result);
     return console.log(`O resultado de (n1 + n2) * n3 é ${result}`);
   };
-
+  
+  return calculator;
 });
-
