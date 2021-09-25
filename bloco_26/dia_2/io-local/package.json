@@ -8,7 +8,11 @@
     "exercise1": "node exercise1.js",
     "exercise2": "node exercise2.js",
     "exercise3": "node exercise3.js",
-    "exercise4": "node exercise4.js"
+    "exercise4": "node exercise4.js",
+    "exercise4-2": "node exercise4_2.js",
+    "teste": "node teste.js",
+    "exercise4_3": "node exercise4_3",
+    "exercise4-3": "node exercise4-3"
   },
   "keywords": [
     "assincrono",
