@@ -10,9 +10,14 @@
     "exercise3": "node exercise3.js",
     "exercise4": "node exercise4.js",
     "exercise4-2": "node exercise4_2.js",
+    "exercise4_2": "node exercise4_2",
     "teste": "node teste.js",
     "exercise4_3": "node exercise4_3",
-    "exercise4-3": "node exercise4-3"
+    "exercise4-3": "node exercise4-3",
+    "exercise4_4": "node exercise4_4",
+    "exercise4-4": "node exercise4-4",
+    "exercise4_5": "node exercise4_5",
+    "exercise4_6": "node exercise4_6"
   },
   "keywords": [
     "assincrono",
