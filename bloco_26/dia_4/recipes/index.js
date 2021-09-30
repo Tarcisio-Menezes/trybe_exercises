@@ -24,8 +24,8 @@ app.get('/recipes', function (req, res) {
 });
 
 app.post('/recipes', function (req, res) {
-  const { id, name, price } = req.body;
-  recipes.push({ id, name, price});
+  const { id, name, price, waitTime } = req.body;
+  recipes.push({ id, name, price, waitTime});
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
@@ -48,6 +48,29 @@ app.get('/recipes/:id', function (req, res) {
   if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
 
   res.status(200).json(recipe);
+});
+
+app.put('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end();
+});
+
+app.delete('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes.splice(recipeIndex, 1);
+
+  res.status(204).end();
 });
 
 app.get('/drinks', function (req, res) {
@@ -73,6 +96,36 @@ app.get('/drinks/:id', function (req, res) {
   if (!drink) return res.status(404).json({ message: 'Drink not found!'});
 
   res.status(200).json(drink);
+});
+
+app.put('/drinks/:id', function (req, res) {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const drinkIndex = drinks.findIndex((r) => r.id === parseInt(id));
+
+  if (drinkIndex === -1) return res.status(404).json({ message: 'drink not found!' });
+
+  drinks[drinkIndex] = { ...drinks[drinkIndex], name, price };
+
+  res.status(204).end();
+});
+
+app.delete('/drinks/:id', function (req, res) {
+  const { id } = req.params;
+  const drinkIndex = drinks.findIndex((r) => r.id === parseInt(id));
+
+  if (drinkIndex === -1) return res.status(404).json({ message: 'drink not found!' });
+
+  drinks.splice(drinkIndex, 1);
+
+  res.status(204).end();
+});
+
+app.get('/validateToken', function (req, res) {
+  const token = req.headers.authorization;
+  if (token.length !== 16) return res.status(401).json({message: 'Invalid Token!'});
+
+  res.status(200).json({message: 'Valid Token!'})
 });
 
 app.listen(3001, () => {
