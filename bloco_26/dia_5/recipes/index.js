@@ -47,7 +47,8 @@ app.get('/recipes', function (req, res) {
 
 app.post('/recipes', validateName, validatePrice, function (req, res) {
   const { id, name, price, waitTime } = req.body;
-  recipes.push({ id, name, price, waitTime});
+  const { username } = req.user;
+  recipes.push({ id, name, price, waitTime, chef: username});
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
