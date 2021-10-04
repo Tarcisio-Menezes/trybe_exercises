@@ -1,7 +1,15 @@
 const express = require('express');
+const authMiddleware = require('./auth-middleware');
 
 const app = express();
 app.use(express.json());
+
+// Esta rota não passa pelo middleware de autenticação!
+app.get('/open', function (req, res) {
+  res.send('open!')
+});
+
+app.use(authMiddleware);
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
@@ -28,7 +36,7 @@ function validateName(req, res, next) {
 
 function validatePrice(req, res, next) {
   const { price } = req.body;
-  if (!price || price <= 0) return res.status(400).json({ message: 'Invalid data!' });
+  if (!price || parseInt(price) <= 0) return res.status(400).json({ message: 'Invalid data!' });
 
   next();
 };
