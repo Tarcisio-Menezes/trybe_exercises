@@ -4,8 +4,22 @@ const controllers = require('./controllers');
 const middlewares = require('./middlewares');
 
 const app = express();
+app.use(express.json());
 
 app.use(express.static(`${__dirname}/uploads`));
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype !== 'image/png') {
+    // Colocar uma mensagem de erro na requisição
+    req.fileValidationError = true;
+
+    // Rejeitar o arquivo
+    return cb(null, false);
+  }
+
+  // Aceitar o arquivo
+  cb(null, true);
+};
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -18,11 +32,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.use(express.json());
-
 app.get('/ping', controllers.ping);
-app.post('/upload', upload.single('file'), (req, res) =>
-  res.status(200).json({ file: req.file }));
+app.post('/upload', upload.single('file'), (req, res, cb) => {
+fileFilter(req, req.file, cb);
+  if (req.fileValidationError) {
+    return res.status(403).send({ 
+    error: 
+    { message: 'Extension must be `png`' },
+   });
+  }
+  res.status(200).json({ file: req.file });
+});
 
 app.use(middlewares.error);
 
