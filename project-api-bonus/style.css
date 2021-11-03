@@ -1,0 +1,48 @@
+.main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fb-share-button {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+}
+
+.social {
+  display: flex;
+  align-self: center;
+}
+
+.field {
+  padding: 5%;
+}
+
+.respost {
+  padding: 5%;
+  display: flex;
+  align-self: center;
+  color: red;
+  font-size: larger;
+}
+
+.chuck-problem {
+  display: none;
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}
