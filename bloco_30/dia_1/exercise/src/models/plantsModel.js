@@ -1,9 +1,9 @@
-const { princeConnection } = require('./schemas');
+const connection = require('./schemas');
 
 const plantRegister = async (plants) => {
   const { id, breed, needsSun, origin, specialCare, size } = plants;
   try {
-    const db = await princeConnection();
+    const db = await connection.princeConnection();
     const register = await db.collection('plants').insertOne({
       id, breed, needsSun, origin, specialCare, size,
     });

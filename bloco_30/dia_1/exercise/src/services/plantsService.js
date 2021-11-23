@@ -7,24 +7,16 @@ const divisorRate = 2;
 const rateMultiply = 1.33;
 
 const registerPlant = async (plant) => {
-  const { id, breed, needsSun, origin, specialCare, size } = plant;
+  const { breed, needsSun, origin, size } = plant;
   const rateCountry = (origin === 'Brazil') ? rateCountryBrazil : rateCountryNotBrazil;
-
-  const newPlant = {
-    id, breed, needsSun, origin, specialCare, size,
-  };
 
   if (needsSun) {
     const waterFrequency = (size * rate) + rateCountry;
-    newPlant.specialCare.waterFrequency = waterFrequency;
-  } else {
-    const waterFrequency = ((size / divisorRate) * rateMultiply) + rateCountry;
-    newPlant.specialCare.waterFrequency = waterFrequency;
-  }
-
-  return plantsModel.plantRegister(newPlant);
+    return plantsModel.plantRegister({ breed, needsSun, origin, size, waterFrequency });
+  } const waterFrequency = ((size / divisorRate) * rateMultiply) + rateCountry;
+    return plantsModel.plantRegister({ breed, needsSun, origin, size, waterFrequency });
 };
 
-module.export = {
+module.exports = {
   registerPlant,
 };

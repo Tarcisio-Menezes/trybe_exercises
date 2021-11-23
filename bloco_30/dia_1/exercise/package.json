@@ -2,7 +2,7 @@
   "name": "exercise",
   "version": "1.0.0",
   "description": "Exercicio do dia 30.1 - Principios SOLID",
-  "main": "./api/server.js",
+  "main": "./src/api/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "express-rescue": "^1.1.31",
     "joi": "^17.4.2",
+    "mongod": "^2.0.0",
     "mongodb": "^4.2.0"
   }
 }
