@@ -20,20 +20,27 @@ const defaultPlants = [
 
 let createdPlants = 0;
 
-const initPlant = (id, breed, needsSun, origin, specialCare, size) => {
-  const waterFrequency = needsSun ? size * 0.77 + (origin === 'Brazil' ? 8 : 7)
-    : (size / 2) * 1.33 + (origin === 'Brazil' ? 8 : 7);
+const rate = 0.77;
+const rateCountryBrazil = 8;
+const rateCountryNotBrazil = 7;
+const divisorRate = 2;
+const rateMultiply = 1.33;
+
+const initPlant = ({ id, breed, needsSun, origin, specialCare, size }) => {
+  const rateCountry = (origin === 'Brazil') ? rateCountryBrazil : rateCountryNotBrazil;
+
   const newPlant = {
-    id,
-    breed,
-    needsSun,
-    origin,
-    specialCare: {
-      waterFrequency,
-      ...specialCare,
-    },
-    size,
+    id, breed, needsSun, origin, specialCare, size,
   };
+
+  if (needsSun) {
+    const waterFrequency = (size * rate) + rateCountry;
+    newPlant.specialCare.waterFrequency = waterFrequency;
+  } else {
+    const waterFrequency = ((size / divisorRate) * rateMultiply) + rateCountry;
+    newPlant.specialCare.waterFrequency = waterFrequency;
+  }
+
   return newPlant;
 };
 
