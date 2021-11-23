@@ -1,16 +1,9 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-const { PRINCE_MONGO_DB_URL, PRINCE_DB_NAME } = process.env;
-
-const OPTIONS = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
 let db = null;
 
-const connection = () => 
+const connection = (PRINCE_MONGO_DB_URL, OPTIONS, PRINCE_DB_NAME) => 
   (db ? Promise.resolve(db) : MongoClient.connect(PRINCE_MONGO_DB_URL, OPTIONS)
     .then((conn) => {
     db = conn.db(PRINCE_DB_NAME);
