@@ -1,0 +1,17 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "Exercicio do dia 30.1 - Principios SOLID",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SOLID",
+    "Node.js",
+    "Express",
+    "REST"
+  ],
+  "author": "Tarcisio Menezes",
+  "license": "ISC"
+}
