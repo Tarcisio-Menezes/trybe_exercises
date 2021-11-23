@@ -12,9 +12,13 @@ const registerPlant = async (plant) => {
 
   if (needsSun) {
     const waterFrequency = (size * rate) + rateCountry;
-    return plantsModel.plantRegister({ breed, needsSun, origin, size, waterFrequency });
+    return plantsModel.plantRegister({ 
+      breed, needsSun, origin, size, specialCare: { waterFrequency },
+    });
   } const waterFrequency = ((size / divisorRate) * rateMultiply) + rateCountry;
-    return plantsModel.plantRegister({ breed, needsSun, origin, size, waterFrequency });
+    return plantsModel.plantRegister({ 
+      breed, needsSun, origin, size, specialCare: { waterFrequency },
+    });
 };
 
 module.exports = {

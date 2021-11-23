@@ -1,14 +1,13 @@
-const connection = require('./schemas');
+const connection = require('./connection');
 
-const plantRegister = async (plants) => {
-  const { id, breed, needsSun, origin, specialCare, size } = plants;
+const plantRegister = async ({ breed, needsSun, origin, size, specialCare }) => {
   try {
-    const db = await connection.princeConnection();
+    const db = await connection();
     const register = await db.collection('plants').insertOne({
-      id, breed, needsSun, origin, specialCare, size,
+      breed, needsSun, origin, size, specialCare,
     });
     return ({
-      _id: register.insertedId, breed, needsSun, origin, specialCare, size,
+      _id: register.insertedId, breed, needsSun, origin, size, specialCare,
     });
   } catch (err) {
       return ({
