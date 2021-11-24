@@ -11,8 +11,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      price: {
-        price: Sequelize.DOUBLE
+      name: {
+        price: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
