@@ -1,0 +1,16 @@
+{
+  "name": "ormassociations",
+  "version": "1.0.0",
+  "description": "Exercicio do dia 30.3 - ORM assiciations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ORM",
+    "Sequelize",
+    "Node.js"
+  ],
+  "author": "Tarcísio Menezes",
+  "license": "ISC"
+}
